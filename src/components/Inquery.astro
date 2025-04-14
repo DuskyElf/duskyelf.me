@@ -1,0 +1,54 @@
+---
+let { href, question } = Astro.props;
+---
+
+<a href={href}>
+    <slot />
+    <span>{question}</span>
+</a>
+
+<style>
+    a {
+        cursor: pointer;
+        color: var(--text);
+        text-underline-offset: 5px;
+        text-decoration: underline 2px solid var(--accent);
+
+        position: relative;
+    }
+
+    a span {
+        opacity: 0;
+        visibility: hidden;
+
+        top: 150%;
+        left: -50%;
+        position: absolute;
+
+        text-wrap: nowrap;
+        text-align: center;
+
+        padding: 5px 10px;
+        border-radius: 6px;
+        border: 2px solid var(--accent);
+
+        transition: visibility 0.3s, opacity 0.3s;
+    }
+
+    a span::after {
+        content: "";
+        position: absolute;
+
+        bottom: 100%;
+        left: 30%;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent var(--accent) transparent;
+    }
+
+    a:hover span {
+        opacity: 1;
+        visibility: visible;
+        text-decoration: none;
+    }
+</style>
