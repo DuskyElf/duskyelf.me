@@ -41,7 +41,13 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		transition: background-color 0.3s, color 0.3s;
+		transition:
+			background-color 0.3s,
+			color 0.3s;
+	}
+
+	:root {
+		font-size: 16px;
 	}
 </style>
 
@@ -60,18 +66,14 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 		justify-content: center;
 		flex-direction: column;
 
-		height: 80vh;
+		height: 90vh;
+		padding: 20px;
 		text-align: center;
 	}
 
 	h1 {
-		font-size: 5rem;
 		font-family: "Times New Roman", Times, serif;
 		text-shadow: 1px 1px 15px color-mix(in srgb, white, transparent 50%);
-	}
-
-	p {
-		font-size: 1.6em;
 	}
 
 	.icons {
@@ -104,5 +106,49 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 
 	:root:has(#theme-light:checked) .icons img[alt="GitHub Icon"] {
 		filter: invert(0);
+	}
+
+	/* Extra small devices (phones, 600px and down) */
+	@media only screen and (max-width: 600px) {
+		h1 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1rem;
+		}
+	}
+
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media only screen and (min-width: 600px) {
+		h1 {
+			font-size: 4rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+		}
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		h1 {
+			font-size: 5rem;
+		}
+
+		p {
+			font-size: 1.6rem;
+		}
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (min-width: 992px) {
+		h1 {
+			font-size: 6rem;
+		}
+
+		p {
+			font-size: 1.8rem;
+		}
 	}
 </style>

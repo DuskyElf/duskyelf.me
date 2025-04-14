@@ -51,4 +51,10 @@ let { href, question } = Astro.props;
         visibility: visible;
         text-decoration: none;
     }
+
+	@media only screen and (max-width: 600px) {
+        a span {
+            display: none;
+        }
+    }
 </style>
