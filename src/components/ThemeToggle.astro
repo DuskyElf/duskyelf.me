@@ -1,0 +1,69 @@
+---
+
+---
+
+<label>
+    <input type="checkbox" id="theme-light" />
+    <span></span>
+</label>
+
+<style is:global>
+    :root {
+        --text: #dcdaf1;
+        --background: #030307;
+        --primary: #a19dd8;
+        --secondary: #762e67;
+        --accent: #c05d80;
+    }
+
+    :root:has(#theme-light:checked) {
+        --text: #100e25;
+        --background: #f8f8fc;
+        --primary: #2b2762;
+        --secondary: #d189c3;
+        --accent: #a23f61;
+    }
+</style>
+
+<style>
+    label {
+        top: 30px;
+        right: 20px;
+        position: absolute;
+
+        z-index: 1000;
+    }
+
+    label > input {
+        width: 0;
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    label {
+        display: block;
+        cursor: pointer;
+
+        padding: 9px;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 20%;
+        background-color: var(--text);
+    }
+
+    span {
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        background-size: cover;
+        background-position: center;
+        background-image: url("/assets/icons/sun.svg");
+    }
+
+    label:has(#theme-light:checked) > span {
+        background-image: url("/assets/icons/moon.svg");
+        filter: hue-rotate(190deg) invert(1);
+    }
+</style>

@@ -1,5 +1,6 @@
 ---
 import Inquery from "../components/Inquery.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
 
 <html lang="en">
@@ -11,6 +12,9 @@ import Inquery from "../components/Inquery.astro";
 		<title>DuskyElf</title>
 	</head>
 	<body>
+		<header>
+			<ThemeToggle />
+		</header>
 		<main>
 			<h1>Rehmatpal Singh</h1>
 			<p>
@@ -37,22 +41,7 @@ import Inquery from "../components/Inquery.astro";
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-	}
-
-	/* :root {
-		--text: #100e25;
-		--background: #f8f8fc;
-		--primary: #2b2762;
-		--secondary: #d189c3;
-		--accent: #a23f61;
-	} */
-
-	:root {
-		--text: #dcdaf1;
-		--background: #030307;
-		--primary: #a19dd8;
-		--secondary: #762e67;
-		--accent: #c05d80;
+		transition: background-color 0.3s, color 0.3s;
 	}
 </style>
 
@@ -81,7 +70,7 @@ import Inquery from "../components/Inquery.astro";
 	}
 
 	p {
-		font-size: 1.5em;
+		font-size: 1.6em;
 	}
 
 	.icons {
@@ -94,7 +83,7 @@ import Inquery from "../components/Inquery.astro";
 	.icons img {
 		cursor: pointer;
 
-		opacity: 0.6;
+		opacity: 0.7;
 		width: 1.5rem;
 		height: 1.5rem;
 		transition: opacity 0.3s;
@@ -110,5 +99,9 @@ import Inquery from "../components/Inquery.astro";
 
 	.icons img[alt="GitHub Icon"] {
 		filter: invert(1);
+	}
+
+	:root:has(#theme-light:checked) .icons img[alt="GitHub Icon"] {
+		filter: invert(0);
 	}
 </style>
