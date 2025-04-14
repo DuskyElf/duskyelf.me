@@ -17,6 +17,17 @@ import Inquery from "../components/Inquery.astro";
 				Tryna be Software Engineer for the
 				<Inquery href="#" question="What good?">Good</Inquery>
 			</p>
+			<div class="icons">
+				<a href="https://github.com/DuskyElf">
+					<img src="/assets/icons/github.svg" alt="GitHub Icon" />
+				</a>
+				<a href="https://bsky.app/profile/duskyelf.me">
+					<img src="/assets/icons/bluesky.svg" alt="Bluesky Icon" />
+				</a>
+				<a href="https://www.youtube.com/@DuskyDaily">
+					<img src="/assets/icons/youtube.svg" alt="YouTube Icon" />
+				</a>
+			</div>
 		</main>
 	</body>
 </html>
@@ -51,11 +62,17 @@ import Inquery from "../components/Inquery.astro";
 		background-color: var(--background);
 		font-family: "Courier New", Courier, monospace;
 
+		height: 100vh;
+	}
+
+	main {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
 
-		height: 100vh;
+		height: 80vh;
+		text-align: center;
 	}
 
 	h1 {
@@ -65,5 +82,33 @@ import Inquery from "../components/Inquery.astro";
 
 	p {
 		font-size: 1.5em;
+	}
+
+	.icons {
+		gap: 1rem;
+		display: flex;
+
+		margin: 30px 0;
+	}
+
+	.icons img {
+		cursor: pointer;
+
+		opacity: 0.6;
+		width: 1.5rem;
+		height: 1.5rem;
+		transition: opacity 0.3s;
+	}
+
+	.icons img:hover {
+		opacity: 1;
+	}
+
+	.icons img[alt="YouTube Icon"] {
+		scale: 1.2;
+	}
+
+	.icons img[alt="GitHub Icon"] {
+		filter: invert(1);
 	}
 </style>
