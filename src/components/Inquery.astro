@@ -22,7 +22,7 @@ let { href, question } = Astro.props;
         visibility: hidden;
 
         top: 150%;
-        left: -50%;
+        left: -30px;
         position: absolute;
 
         text-wrap: nowrap;
@@ -39,8 +39,8 @@ let { href, question } = Astro.props;
         content: "";
         position: absolute;
 
+        left: 30px;
         bottom: 100%;
-        left: 30%;
         border-width: 10px;
         border-style: solid;
         border-color: transparent transparent var(--accent) transparent;
@@ -49,7 +49,6 @@ let { href, question } = Astro.props;
     a:hover span {
         opacity: 1;
         visibility: visible;
-        text-decoration: none;
     }
 
 	@media only screen and (max-width: 600px) {
