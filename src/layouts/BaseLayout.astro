@@ -1,0 +1,49 @@
+---
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title} | DuskyElf</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	</head>
+	<body>
+		<header>
+			<ThemeToggle />
+		</header>
+        <slot />
+	</body>
+</html>
+
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	:root {
+		font-size: 16px;
+	}
+</style>
+
+<style>
+	body {
+		color: var(--text);
+		background-color: var(--background);
+		font-family: "Courier New", Courier, monospace;
+
+		height: 100vh;
+	}
+</style>

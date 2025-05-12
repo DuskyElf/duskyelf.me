@@ -1,65 +1,36 @@
 ---
 import Inquery from "../components/Inquery.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>DuskyElf</title>
-	</head>
-	<body>
-		<header>
-			<ThemeToggle />
-		</header>
-		<main>
-			<h1>Rehmatpal Singh</h1>
-			<p>
-				Tryna be Software Engineer for the
-				<Inquery href="#" question="What good?">Good</Inquery>
-			</p>
-			<div class="icons">
+<BaseLayout title="Home">
+	<main>
+		<h1>Rehmatpal Singh</h1>
+		<p>
+			Tryna be Software Engineer for the
+			<Inquery href="#" question="What good?">Good</Inquery>
+		</p>
+		<ul class="icons">
+			<li>
 				<a href="https://github.com/DuskyElf">
 					<img src="/assets/icons/github.svg" alt="GitHub Icon" />
 				</a>
+			</li>
+			<li>
 				<a href="https://bsky.app/profile/duskyelf.me">
 					<img src="/assets/icons/bluesky.svg" alt="Bluesky Icon" />
 				</a>
+			</li>
+			<li>
 				<a href="https://www.youtube.com/@DuskyDaily">
 					<img src="/assets/icons/youtube.svg" alt="YouTube Icon" />
 				</a>
-			</div>
-		</main>
-	</body>
-</html>
-
-<style is:global>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		transition:
-			background-color 0.3s,
-			color 0.3s;
-	}
-
-	:root {
-		font-size: 16px;
-	}
-</style>
+			</li>
+		</ul>
+	</main>
+</BaseLayout>
 
 <style>
-	body {
-		color: var(--text);
-		background-color: var(--background);
-		font-family: "Courier New", Courier, monospace;
-
-		height: 100vh;
-	}
-
 	main {
 		display: flex;
 		align-items: center;
@@ -79,6 +50,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 	.icons {
 		gap: 1rem;
 		display: flex;
+		list-style: none;
 
 		margin: 30px 0;
 	}
