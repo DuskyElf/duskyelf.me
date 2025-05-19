@@ -7,7 +7,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	<main>
 		<h1>Rehmatpal Singh</h1>
 		<p>
-			Tryna be Software Engineer for the
+			Tryna be <a href="<placeholder>" class="correction-a">^</a> Software Engineer for the
 			<Inquery href="#" question="What good?">Good</Inquery>
 		</p>
 		<ul class="icons">
@@ -40,6 +40,40 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		height: 90vh;
 		padding: 20px;
 		text-align: center;
+	}
+
+	p {
+		position: relative;
+	}
+
+	.correction-a {
+		color: inherit;
+		text-decoration: none;
+
+		top: 0.7em;
+		position: relative;
+	}
+
+	.correction-a::before {
+		content: "a";
+
+		top: -1.8em;
+		position: absolute;
+	}
+
+	.correction-a::after {
+		opacity: 0;
+		font-size: 0.5em;
+		text-decoration: underline;
+		content: "english is hard";
+
+		left: 0;
+		bottom: -2em;
+		position: absolute;
+	}
+
+	.correction-a:hover::after {
+		opacity: 1;
 	}
 
 	h1 {
