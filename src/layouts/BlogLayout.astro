@@ -1,0 +1,56 @@
+---
+import "../styles/md.css";
+import Tag from "../components/Tag.astro";
+import BaseLayout from "./BaseLayout.astro";
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+    title: string;
+    description: string;
+    pubDate: string;
+    tags: string[];
+}>;
+
+const { frontmatter } = Astro.props;
+const pubDate = new Date(frontmatter.pubDate);
+---
+
+<BaseLayout title={frontmatter.title}>
+    <link
+        rel="preload"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+        ><link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+        /></noscript
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        rel="preload"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+        ><link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+        /></noscript
+    >
+    <main>
+        <h1><mark>{frontmatter.title}</mark></h1>
+        Published on <time datetime={pubDate.toISOString()}>
+            {pubDate.toDateString().split(" ").slice(1).join(" ")}
+        </time>
+        ·
+        {frontmatter.tags.map((tag) => <Tag>{tag}</Tag>)}
+        <hr />
+        <slot />
+    </main>
+</BaseLayout>

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: "Courier New", Courier, monospace;
+
+    font-size: 1.1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-underline-offset: 5px;
+    text-decoration: underline 2px solid var(--accent);
+}
+

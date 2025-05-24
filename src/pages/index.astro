@@ -3,7 +3,7 @@ import Inquery from "../components/Inquery.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" navBar={false}>
 	<main>
 		<h1>Rehmatpal Singh</h1>
 		<p>
@@ -25,6 +25,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				<a href="https://www.youtube.com/@DuskyDaily">
 					<img src="/assets/icons/youtube.svg" alt="YouTube Icon" />
 				</a>
+			</li>
+			<li>
+				<Inquery href="/blog" question="Read my blog">
+					<img src="/assets/icons/blog.svg" alt="Blog Icon" />
+				</Inquery>
 			</li>
 		</ul>
 	</main>
@@ -77,13 +82,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	}
 
 	h1 {
-		font-family: "Times New Roman", Times, serif;
-		font-size: min(6rem, 9vw);
+		transform: translateY(0.5rem);
+		font-size: min(7rem, 12vw);
 		text-shadow: 1px 1px 15px color-mix(in srgb, white, transparent 50%);
 	}
 
 	p {
-		font-size: max(1rem, min(2rem, 3vw));
+		font-size: max(1rem, min(2rem, 3.5vw));
 	}
 
 	.icons {
@@ -116,6 +121,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	}
 
 	:root:has(#theme-light:checked) .icons img[alt="GitHub Icon"] {
+		filter: invert(0);
+	}
+
+	.icons img[alt="Blog Icon"] {
+		filter: invert(1);
+		transform: translateY(-0.1rem);
+	}
+
+	:root:has(#theme-light:checked) .icons img[alt="Blog Icon"] {
 		filter: invert(0);
 	}
 </style>
