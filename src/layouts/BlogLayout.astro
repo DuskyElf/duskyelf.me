@@ -1,0 +1,37 @@
+---
+import "../styles/md.css";
+import Tag from "../components/Tag.astro";
+import BaseLayout from "./BaseLayout.astro";
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+    title: string;
+    description: string;
+    pubDate: string;
+    tags: string[];
+}>;
+
+const { frontmatter } = Astro.props;
+const pubDate = new Date(frontmatter.pubDate);
+---
+
+<BaseLayout title={frontmatter.title}>
+    <main>
+        <h1><mark>{frontmatter.title}</mark></h1>
+        Published on <time datetime={pubDate.toISOString()}>
+            {pubDate.toDateString().split(" ").slice(1).join(" ")}
+        </time>
+        ·
+        {frontmatter.tags.map((tag) => <Tag>{tag}</Tag>)}
+        <hr />
+        <slot />
+    </main>
+</BaseLayout>
+
+<style>
+    main {
+        padding: 0 20px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+</style>

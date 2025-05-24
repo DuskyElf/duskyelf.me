@@ -1,0 +1,55 @@
+---
+import "../styles/md.css";
+import Tag from "../components/Tag.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const allBlogs = Object.values(
+    import.meta.glob("./blog/*.mdx", { eager: true }),
+);
+---
+
+<BaseLayout title="Blogs">
+    <main>
+        <h1><mark>DuskyElf's Blogs</mark></h1>
+
+        <ul>
+            {
+                allBlogs.map((post: any) => (
+                    <li>
+                        <article>
+                            <h2>
+                                <a href={post.url}>{post.frontmatter.title}</a>
+                            </h2>
+                            <p>
+                                {post.frontmatter.description}
+                                <br />
+                                <time datetime={post.frontmatter.pubDate}>
+                                    {new Date(post.frontmatter.pubDate)
+                                        .toDateString()
+                                        .split(" ")
+                                        .slice(1)
+                                        .join(" ")}
+                                </time>
+                                ·
+                                {post.frontmatter.tags.map((tag: string) => (
+                                    <Tag>{tag}</Tag>
+                                ))}
+                            </p>
+                        </article>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+</BaseLayout>
+
+<style>
+    h2 {
+        margin: 0;
+        border: 0;
+    }
+
+    li {
+        margin-top: 1em;
+    }
+</style>
