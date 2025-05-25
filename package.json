@@ -9,9 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.6.1",
     "@astrojs/mdx": "^4.2.6",
+    "astro": "^5.6.1",
     "rehype-autolink-headings": "^7.1.0",
+    "rehype-katex": "^7.0.1",
     "rehype-slug": "^6.0.0"
   }
 }

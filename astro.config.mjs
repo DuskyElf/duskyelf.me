@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
 import rehypeSlug from 'rehype-slug';
+import rehypeKatex from 'rehype-katex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // https://astro.build/config
@@ -11,7 +12,7 @@ export default defineConfig({
   integrations: [mdx()],
 
   markdown: {
-    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }]],
+    rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }]],
   },
 
   redirects: {

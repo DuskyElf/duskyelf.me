@@ -16,6 +16,7 @@ const pubDate = new Date(frontmatter.pubDate);
 ---
 
 <BaseLayout title={frontmatter.title}>
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
     <main>
         <h1><mark>{frontmatter.title}</mark></h1>
         Published on <time datetime={pubDate.toISOString()}>
