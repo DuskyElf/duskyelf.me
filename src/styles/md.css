@@ -27,13 +27,15 @@
     --borderColor-attention-emphasis: #9e6a03;
     --borderColor-danger-emphasis: #da3633;
     --borderColor-done-emphasis: #8957e5;
-    --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    --fontStack-monospace: "JetBrains Mono", "SF Mono", "Fira Code", "Courier New", monospace;
 }
 
 main {
     padding: 0 20px;
     margin: 0 auto;
     max-width: 800px;
+
+    font-family: Outfit, Arial, sans-serif;
 }
 
 .icon-link::after {
@@ -127,7 +129,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace;
+    font-family: var(--fontStack-monospace);
     font-size: 1em;
 }
 
@@ -285,7 +287,10 @@ h6 {
     line-height: 1.25;
 }
 
-h2:has(+h3,h4,h5,h6) + h3,h4,h5,h6 {
+h2:has(+h3, h4, h5, h6)+h3,
+h4,
+h5,
+h6 {
     margin-top: var(--base-size-16);
 }
 
@@ -718,7 +723,7 @@ pre tt {
 }
 
 .footnotes .data-footnote-backref g-emoji {
-    font-family: monospace;
+    font-family: var(--fontStack-monospace);
 }
 
 body:has(:modal) {
