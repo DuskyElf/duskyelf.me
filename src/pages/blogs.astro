@@ -20,21 +20,20 @@ const allBlogs = Object.values(
                             <h2>
                                 <a href={post.url}>{post.frontmatter.title}</a>
                             </h2>
-                            <p>
+                            <p class="description">
                                 {post.frontmatter.description}
-                                <br />
-                                <time datetime={post.frontmatter.pubDate}>
-                                    {new Date(post.frontmatter.pubDate)
-                                        .toDateString()
-                                        .split(" ")
-                                        .slice(1)
-                                        .join(" ")}
-                                </time>
-                                ·
-                                {post.frontmatter.tags.map((tag: string) => (
-                                    <Tag>{tag}</Tag>
-                                ))}
                             </p>
+                            <time datetime={post.frontmatter.pubDate}>
+                                {new Date(post.frontmatter.pubDate)
+                                    .toDateString()
+                                    .split(" ")
+                                    .slice(1)
+                                    .join(" ")}
+                            </time>
+                            ·
+                            {post.frontmatter.tags.map((tag: string) => (
+                                <Tag>{tag}</Tag>
+                            ))}
                         </article>
                     </li>
                 ))
@@ -51,5 +50,10 @@ const allBlogs = Object.values(
 
     li {
         margin-top: 1em;
+    }
+
+    .description {
+        font-size: 0.9em;
+        margin-bottom: 0.5em;
     }
 </style>
