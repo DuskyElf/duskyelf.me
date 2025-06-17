@@ -2,8 +2,23 @@
 
 ---
 
-<label>
+<label transition:persist>
     <input type="checkbox" id="theme-light" />
+    <script>
+        const themeToggle = document.getElementById(
+            "theme-light",
+        ) as HTMLInputElement;
+
+        themeToggle.checked = localStorage.getItem("theme") === "light";
+
+        themeToggle.addEventListener("change", () => {
+            if (themeToggle.checked) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.removeItem("theme");
+            }
+        });
+    </script>
     <span></span>
 </label>
 
